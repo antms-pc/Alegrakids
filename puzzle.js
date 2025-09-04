@@ -128,6 +128,7 @@ document.getElementById('btn-right').addEventListener('click', () => move(1));
 document.getElementById('btn-rotate').addEventListener('click', () => rotate());
 document.getElementById('btn-down').addEventListener('click', () => drop());
 
+// Velocidade reduzida para crianças
 setInterval(() => {
   if (!gameOver) drop();
-}, 800);
+}, 1000); // 1 segundo entre quedas

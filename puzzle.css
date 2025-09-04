@@ -29,9 +29,10 @@ canvas {
 }
 
 #controls {
-  margin-top: 20px;
+  margin-top: 25px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
@@ -54,4 +55,3 @@ canvas {
 .rotate-btn {
   background: linear-gradient(135deg, #ffd54f, #ffecb3);
 }
-
