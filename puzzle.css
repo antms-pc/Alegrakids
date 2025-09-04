@@ -27,3 +27,24 @@ canvas {
 .hidden {
   display: none;
 }
+
+/* Áreas de toque invisíveis */
+#touch-controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+#touch-left, #touch-right, #touch-up, #touch-down {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+}
+
+#touch-left { left: 0; top: 25%; }
+#touch-right { right: 0; top: 25%; }
+#touch-up { top: 0; left: 25%; height: 25%; width: 50%; }
+#touch-down { bottom: 0; left: 25%; height: 25%; width: 50%; }

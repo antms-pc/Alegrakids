@@ -121,6 +121,12 @@ document.addEventListener('keydown', e => {
   else if (e.key === 'ArrowDown') drop();
 });
 
+// Controles por toque para mobile
+document.getElementById('touch-left').addEventListener('touchstart', () => move(-1));
+document.getElementById('touch-right').addEventListener('touchstart', () => move(1));
+document.getElementById('touch-up').addEventListener('touchstart', () => rotate());
+document.getElementById('touch-down').addEventListener('touchstart', () => drop());
+
 setInterval(() => {
   if (!gameOver) drop();
 }, 500);
