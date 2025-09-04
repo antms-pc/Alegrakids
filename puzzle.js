@@ -113,6 +113,7 @@ function restartGame() {
   drawBoard();
 }
 
+// Teclado
 document.addEventListener('keydown', e => {
   if (gameOver) return;
   if (e.key === 'ArrowLeft') move(-1);
@@ -121,12 +122,12 @@ document.addEventListener('keydown', e => {
   else if (e.key === 'ArrowDown') drop();
 });
 
-// Controles por toque para mobile
-document.getElementById('touch-left').addEventListener('touchstart', () => move(-1));
-document.getElementById('touch-right').addEventListener('touchstart', () => move(1));
-document.getElementById('touch-up').addEventListener('touchstart', () => rotate());
-document.getElementById('touch-down').addEventListener('touchstart', () => drop());
+// Botões visuais
+document.getElementById('btn-left').addEventListener('click', () => move(-1));
+document.getElementById('btn-right').addEventListener('click', () => move(1));
+document.getElementById('btn-rotate').addEventListener('click', () => rotate());
+document.getElementById('btn-down').addEventListener('click', () => drop());
 
 setInterval(() => {
   if (!gameOver) drop();
-}, 500);
+}, 800);
