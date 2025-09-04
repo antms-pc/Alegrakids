@@ -1,0 +1,57 @@
+body {
+  font-family: 'Comic Sans MS', cursive;
+  background-color: #e0f7fa;
+  text-align: center;
+  padding: 20px;
+  color: #444;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  gap: 5px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  background-color: #ffe4e1;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.cell.selected {
+  background-color: #ffb6c1;
+}
+
+.cell.found {
+  background-color: #c8e6c9;
+}
+
+#found-words {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #4e4e4e;
+}
+
+#win-message {
+  margin-top: 30px;
+  font-size: 1.5em;
+  color: #ff69b4;
+}
+
+.hidden {
+  display: none;
+}
+
+.cell.multi-found {
+  background-color: #b2dfdb; /* tom diferente para sobreposição */
+}

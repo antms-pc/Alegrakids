@@ -1,0 +1,29 @@
+body {
+  font-family: 'Comic Sans MS', cursive;
+  background-color: #fce4ec;
+  text-align: center;
+  padding: 20px;
+  color: #444;
+}
+
+canvas {
+  background-color: #fff8e1;
+  border: 2px solid #ffb6b9;
+  margin-top: 20px;
+}
+
+#score {
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #6a1b9a;
+}
+
+#game-over {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #d32f2f;
+}
+
+.hidden {
+  display: none;
+}
