@@ -15,7 +15,7 @@ function criarQuebraCabeca(tamanho, imagem) {
   container.innerHTML = "";
   container.style.gridTemplateColumns = `repeat(${tamanho}, 100px)`;
   container.style.gridTemplateRows = `repeat(${tamanho}, 100px)`;
-  faseTexto.textContent = `Fase atual: ${tamanho}×${tamanho}`;
+  faseTexto.innerHTML = `<strong>Fase atual: ${tamanho}×${tamanho}</strong>`;
   imagemPreview.src = imagem;
 
   const total = tamanho * tamanho;
