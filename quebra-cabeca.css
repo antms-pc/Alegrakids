@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #222;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Imagem de referência no canto superior esquerdo */
+#imagem-referencia {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-align: center;
+  color: #ccc;
+}
+
+#imagem-referencia img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+/* Container central do jogo */
+#jogo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+/* Texto da fase */
+#fase-atual {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+#fase-atual strong {
+  color: #00ffcc;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Quebra-cabeça */
+#puzzle-container {
+  display: grid;
+  gap: 2px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+/* Peças */
+.piece {
+  cursor: grab;
+  border: 1px solid #fff;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  background-repeat: no-repeat;
+}
+
+/* Botão */
+.game-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #00ffcc;
+  color: #222;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.game-button:hover {
+  background-color: #00ccaa;
+}
+
+/* Responsivo para tablets e celulares */
+@media (max-width: 768px) {
+  #imagem-referencia img {
+    width: 150px;
+    height: 150px;
+  }
+
+  #puzzle-container {
+    transform: scale(0.8);
+    transform-origin: top center;
+  }
+
+  #fase-atual {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  #imagem-referencia img {
+    width: 120px;
+    height: 120px;
+  }
+
+  #puzzle-container {
+    transform: scale(0.7);
+  }
+
+  #fase-atual {
+    font-size: 14px;
+  }
+}
