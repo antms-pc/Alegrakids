@@ -13,6 +13,12 @@ body {
   margin-top: 30px;
 }
 
+@media (max-width: 500px) {
+  #game-board {
+    grid-template-columns: repeat(2, 100px);
+  }
+}
+
 .card {
   width: 100px;
   height: 100px;
@@ -38,4 +44,20 @@ body {
   margin-top: 30px;
   font-size: 1.5em;
   color: #ff69b4;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.voltar-button {
+  display: inline-block;
+  background-color: #ffd700;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
 }

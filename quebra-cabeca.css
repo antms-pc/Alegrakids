@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100vh;
+  background-color: #f0f8ff;
+  font-family: 'Comic Sans MS', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+
+header {
+  width: 100%;
+  padding: 20px 0 10px;
+  background-color: #f0f8ff;
+}
+
+#titulo-jogo {
+  font-size: 2.2rem;
+  color: #333;
+  text-align: center;
+}
+
+#imagem-referencia-flutuante {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: center;
+  z-index: 100;
+}
+
+#imagem-referencia-flutuante p {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+#imagem-referencia-flutuante img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 3px solid #ffd700;
+  border-radius: 10px;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+main p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+#fase-atual {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+#puzzle-container {
+  display: grid;
+  grid-gap: 0.5px;
+  width: 50vmin;
+  height: 50vmin;
+  margin-top: 10px;
+}
+
+.piece {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  border: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#mensagem-final {
+  font-size: 1.2rem;
+  color: #4CAF50;
+  margin-top: 10px;
+}
+
+#jogar-novamente {
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #f0f8ff;
+}
+
+.voltar-button {
+  background-color: #ffd700;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
