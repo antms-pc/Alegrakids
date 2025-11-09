@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Comic Sans MS', cursive;
+  background-color: #f0f8ff;
+  color: #333;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+canvas {
+  border: 2px solid #4CAF50;
+  background-color: #fff;
+  max-width: 100%;
+  height: auto;
+}
+
+#score {
+  font-size: 1.2em;
+  color: #4CAF50;
+  margin: 10px 0;
+}
+
+#game-over {
+  font-size: 1.5em;
+  color: #ff69b4;
+  margin: 10px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.control-btn {
+  font-size: 1.5em;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffd700;
+  cursor: pointer;
+}
+
+.control-btn:hover {
+  background-color: #ffec8b;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+}
+
+.voltar-button {
+  display: inline-block;
+  background-color: #ffd700;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+
+  .control-btn {
+    font-size: 1.2em;
+    padding: 8px 12px;
+  }
+}

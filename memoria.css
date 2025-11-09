@@ -1,0 +1,63 @@
+body {
+  font-family: 'Comic Sans MS', cursive;
+  background-color: #fff0f5;
+  text-align: center;
+  padding: 20px;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+@media (max-width: 500px) {
+  #game-board {
+    grid-template-columns: repeat(2, 100px);
+  }
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: #ffe4e1;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.card.flipped {
+  background-color: #ffb6c1;
+}
+
+.hidden {
+  display: none;
+}
+
+#win-message {
+  margin-top: 30px;
+  font-size: 1.5em;
+  color: #ff69b4;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.voltar-button {
+  display: inline-block;
+  background-color: #ffd700;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}

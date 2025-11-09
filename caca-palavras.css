@@ -1,0 +1,97 @@
+body {
+  font-family: 'Comic Sans MS', cursive;
+  background-color: #e0f7fa;
+  color: #444;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#grid {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 5px;
+  max-width: 100%;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+.cell {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #ffe4e1;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: clamp(0.8em, 2vw, 1.2em);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.cell.selected {
+  background-color: #ffb6c1;
+}
+
+.cell.found {
+  background-color: #c8e6c9;
+  transition: background-color 0.3s;
+}
+
+.cell.multi-found {
+  background-color: #b2dfdb;
+}
+
+.cell:focus {
+  outline: 2px solid #4dd0e1;
+  outline-offset: 2px;
+}
+
+#found-words {
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #4e4e4e;
+}
+
+#found-words span {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background-color: #ffd700;
+  color: #333;
+  font-weight: bold;
+}
+
+#win-message {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #ff69b4;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+.voltar-button {
+  display: inline-block;
+  background-color: #ffd700;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
