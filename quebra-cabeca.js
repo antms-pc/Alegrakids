@@ -134,7 +134,7 @@ container.addEventListener("touchmove", (e) => {
     const deltaY = currentY - touchStartY;
 
     // Ações agressivas de arrasto (translate + scale)
-    dragged.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(1.1)`;
+    dragged.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
 
     const elementsUnderFinger = document.elementsFromPoint(currentX, currentY);
     dragOverTarget = elementsUnderFinger.find(
@@ -186,5 +186,6 @@ window.addEventListener("resize", () => {
   const faseParaRecriar = fases[faseAtual] || fases[0];
   criarQuebraCabeca(faseParaRecriar.tamanho, faseParaRecriar.imagem);
 });
+
 
 criarQuebraCabeca(fases[0].tamanho, fases[0].imagem);
