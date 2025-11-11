@@ -8,13 +8,14 @@ body {
   font-family: 'Comic Sans MS', cursive;
   background-color: #f0f8ff;
   color: #333;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 10px;
+  touch-action: none;
 }
 
 h1 {
@@ -25,8 +26,12 @@ h1 {
 canvas {
   border: 2px solid #4CAF50;
   background-color: #fff;
-  max-width: 100%;
+  width: 80vw;
+  max-width: 240px; 
+  max-height: 70vh; 
   height: auto;
+  aspect-ratio: 240 / 400;
+  touch-action: none;
 }
 
 #score {
@@ -46,49 +51,67 @@ canvas {
 }
 
 #controls {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-areas:
+    ". rotate ."
+    "left down right";
   gap: 10px;
-  margin: 10px 0;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 300px;
 }
+
+#btn-left { grid-area: left; }
+#btn-rotate { grid-area: rotate; }
+#btn-right { grid-area: right; }
+#btn-down { grid-area: down; }
+
 
 .control-btn {
-  font-size: 1.5em;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
+  font-size: 1.8em;
   background-color: #ffd700;
+  color: #333;
+  border: none;
   cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  
+  /* Formato Circular e Tamanho Otimizado para Touch */
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  padding: 0;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px #ccae00;
+  user-select: none;
+  touch-action: none;
 }
 
-.control-btn:hover {
-  background-color: #ffec8b;
-}
-
-footer {
-  width: 100%;
-  text-align: center;
+.control-btn:active {
+  background-color: #ffc700;
+  box-shadow: 0 2px #ccae00;
+  transform: translateY(3px);
 }
 
 .voltar-button {
-  display: inline-block;
-  background-color: #ffd700;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+  margin-top: 20px;
 }
 
-@media (max-width: 768px) {
-  canvas {
-    width: 100%;
-    height: auto;
-  }
+.voltar-button:hover {
+  background-color: #3e8e41;
+}
 
-  .control-btn {
-    font-size: 1.2em;
-    padding: 8px 12px;
-  }
+footer {
+    margin-top: auto; 
+    padding: 10px 0;
 }
