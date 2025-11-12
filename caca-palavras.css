@@ -2,25 +2,37 @@ body {
   font-family: 'Comic Sans MS', cursive;
   background-color: #e0f7fa;
   color: #444;
-  height: 100vh;
+  height: 100vh; 
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px 5px;
   box-sizing: border-box;
-  max-width: 600px;
-  margin: 0 auto;
+  margin: 0; 
   text-align: center;
+  overflow-x: hidden; 
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin-bottom: 5px;
+}
+
+.word-list {
+  font-size: clamp(0.8rem, 3vw, 1rem);
+  margin-bottom: 10px;
 }
 
 #grid {
   flex-grow: 1;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 5px;
-  max-width: 100%;
-  margin: 10px auto;
-  overflow: hidden;
+  grid-template-columns: repeat(10, 1fr); 
+  gap: 3px; 
+  max-width: 98vw; 
+  margin: 10px auto; 
+  overflow: hidden; 
+  align-self: center;
 }
 
 .cell {
@@ -29,12 +41,13 @@ body {
   background-color: #ffe4e1;
   border-radius: 5px;
   font-weight: bold;
-  font-size: clamp(0.8em, 2vw, 1.2em);
+  font-size: clamp(0.7em, 3.5vw, 1.2em); 
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s;
+  line-height: 1; 
 }
 
 .cell.selected {
@@ -57,24 +70,30 @@ body {
 
 #found-words {
   margin-top: 10px;
-  font-size: 1.2em;
+  font-size: clamp(1em, 3vw, 1.2em);
   color: #4e4e4e;
 }
 
 #found-words span {
   display: inline-block;
-  margin: 0 5px;
-  padding: 3px 8px;
+  margin: 0 4px;
+  padding: 2px 6px;
   border-radius: 6px;
   background-color: #ffd700;
   color: #333;
   font-weight: bold;
+  white-space: nowrap; 
 }
 
 #win-message {
   margin-top: 20px;
-  font-size: 1.5em;
+  font-size: clamp(1.2em, 4vw, 1.5em);
   color: #ff69b4;
+}
+
+#win-message button {
+  padding: 8px 15px;
+  font-size: clamp(1em, 3vw, 1.2em);
 }
 
 .hidden {
@@ -84,14 +103,16 @@ body {
 footer {
   margin-top: auto;
   text-align: center;
+  padding-top: 10px; 
 }
 
 .voltar-button {
   display: inline-block;
   background-color: #ffd700;
   color: #333;
-  padding: 10px 20px;
+  padding: 8px 15px;
   border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
+  font-size: clamp(1em, 3vw, 1.1em);
 }
