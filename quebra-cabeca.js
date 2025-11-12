@@ -5,13 +5,8 @@ const mensagemFinal = document.getElementById("mensagem-final");
 const botaoJogarNovamente = document.getElementById("jogar-novamente");
 
 let dragged = null;
-let dragOverTarget = null;
 let ordemCorreta = [];
 let faseAtual = 0;
-
-let touchStartX = 0;
-let touchStartY = 0;
-let draggedPieceOriginalRect = null;
 
 const fases = [
   { tamanho: 3, imagem: "urso.png" },
@@ -47,114 +42,28 @@ function criarQuebraCabeca(tamanho, imagem) {
     piece.style.backgroundImage = `url('${imagem}')`;
     piece.style.backgroundSize = `${containerSize}px ${containerSize}px`;
     piece.style.backgroundPosition = `-${pos.x}px -${pos.y}px`;
+    piece.setAttribute("draggable", true);
     piece.dataset.index = pos.index;
     container.appendChild(piece);
   });
 }
 
-function getPieceIndex(piece) {
-  return Array.from(container.children).indexOf(piece);
-}
+container.addEventListener("dragstart", (e) => {
+  dragged = e.target;
+});
 
-function swapPieces(piece1, piece2) {
-  if (!piece1 || !piece2 || piece1 === piece2) return;
+container.addEventListener("dragover", (e) => {
+  e.preventDefault();
+});
 
-  const piece1Index = getPieceIndex(piece1);
-  const piece2Index = getPieceIndex(piece2);
-
-  if (piece1Index < piece2Index) {
-    container.insertBefore(piece2, piece1);
-    container.insertBefore(piece1, container.children[piece2Index + 1]);
-  } else {
-    container.insertBefore(piece1, piece2);
-    container.insertBefore(piece2, container.children[piece1Index + 1]);
-  }
-  verificarMontagem();
-}
-
-container.addEventListener("mousedown", (e) => {
+container.addEventListener("drop", (e) => {
   if (e.target.classList.contains("piece")) {
-    dragged = e.target;
-    dragged.classList.add("dragging");
-    document.body.style.cursor = "grabbing";
-  }
-});
-
-container.addEventListener("mousemove", (e) => {
-  if (dragged) {
-    if (e.target.classList.contains("piece") && e.target !== dragged) {
-      dragOverTarget = e.target;
-    } else {
-      dragOverTarget = null;
-    }
-  }
-});
-
-container.addEventListener("mouseup", () => {
-  if (dragged) {
-    dragged.classList.remove("dragging");
-    document.body.style.cursor = "default";
-    if (dragOverTarget) {
-      swapPieces(dragged, dragOverTarget);
-    }
-    dragged = null;
-    dragOverTarget = null;
-  }
-});
-
-container.addEventListener("mouseleave", () => {
-  if (dragged) {
-    dragged.classList.remove("dragging");
-    document.body.style.cursor = "default";
-    dragged = null;
-    dragOverTarget = null;
-  }
-});
-
-container.addEventListener("touchstart", (e) => {
-  if (e.touches.length === 1 && e.target.classList.contains("piece")) {
-    e.preventDefault();
-    dragged = e.target;
-    dragged.classList.add("dragging");
-    
-    draggedPieceOriginalRect = dragged.getBoundingClientRect();
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  }
-}, { passive: false });
-
-container.addEventListener("touchmove", (e) => {
-  if (dragged && e.touches.length === 1) {
-    e.preventDefault();
-
-    const currentX = e.touches[0].clientX;
-    const currentY = e.touches[0].clientY;
-
-    const deltaX = currentX - touchStartX;
-    const deltaY = currentY - touchStartY;
-
-    // Ações agressivas de arrasto (translate + scale)
-    dragged.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-
-    const elementsUnderFinger = document.elementsFromPoint(currentX, currentY);
-    dragOverTarget = elementsUnderFinger.find(
-      (el) => el.classList.contains("piece") && el !== dragged
-    );
-  }
-}, { passive: false });
-
-container.addEventListener("touchend", () => {
-  if (dragged) {
-    dragged.classList.remove("dragging");
-    // Limpeza de estilo para garantir que a peça volte ao normal
-    dragged.style.transform = '';
-
-    if (dragOverTarget) {
-      swapPieces(dragged, dragOverTarget);
-    }
-    dragged = null;
-    dragOverTarget = null;
-    draggedPieceOriginalRect = null;
+    const temp = document.createElement("div");
+    container.insertBefore(temp, dragged);
+    container.insertBefore(dragged, e.target);
+    container.insertBefore(e.target, temp);
+    container.removeChild(temp);
+    verificarMontagem();
   }
 });
 
@@ -186,6 +95,5 @@ window.addEventListener("resize", () => {
   const faseParaRecriar = fases[faseAtual] || fases[0];
   criarQuebraCabeca(faseParaRecriar.tamanho, faseParaRecriar.imagem);
 });
-
 
 criarQuebraCabeca(fases[0].tamanho, fases[0].imagem);
