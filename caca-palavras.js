@@ -101,3 +101,4 @@ function iniciarJogo() {
 function restartGame() {
   iniciarJogo();
 }
+
